@@ -11,8 +11,8 @@ This project is a simple implementation of a circular LED clock using HTML/CSS/J
 
 ## Technologies Used
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 
 ## Getting Started
@@ -25,14 +25,14 @@ You only need a web browser to run this project.
 
 1. **Clone the repository** (if using Git):
    ```bash
-   git clone https://github.com/your-username/led-circular-clock.git
+   git clone https://github.com/heavyagain/Horloge2Radio
    ```
 
-2. **Open the `index.html` file** in your preferred web browser.
+2. **Open the `horloge.html` file** in your preferred web browser.
 
 ### Usage
 
-When you open the `index.html` file, you will see a circular LED clock displaying the current time. The dots around the circle will light up based on the current seconds.
+When you open the `horloge.html` file, you will see a circular LED clock displaying the current time. The dots around the circle will light up based on the current seconds.
 
 ## Code Overview
 
@@ -78,8 +78,3 @@ Feel free to submit issues or pull requests if you have suggestions or improveme
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Inspired by classic LED clocks.
-- Special thanks to online resources for HTML, CSS, and JavaScript tutorials.
