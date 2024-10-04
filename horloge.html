@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horloge LED By Heavy</title>
+    <title>Horloge LED Circulaire</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,7 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            cursor: none; 
+            cursor: none; /* Masque le curseur */
         }
         .clock {
             position: relative;
@@ -24,6 +24,9 @@
         .led-display {
             position: absolute;
             text-align: center;
+            top: 50%; /* Centrer verticalement */
+            left: 50%; /* Centrer horizontalement */
+            transform: translate(-50%, -50%); /* Ajuster pour centrer parfaitement */
         }
         #timeDisplay {
             font-size: 120px;
@@ -39,6 +42,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            top: 50%; /* Centrer verticalement */
+            left: 50%; /* Centrer horizontalement */
+            transform: translate(-50%, -50%); /* Ajuster pour centrer parfaitement */
         }
         .led-dot {
             position: absolute;
