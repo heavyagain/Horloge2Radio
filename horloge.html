@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horloge LED By Heavy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: black;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            cursor: none; 
+        }
+        .clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+        .led-display {
+            position: absolute;
+            text-align: center;
+        }
+        #timeDisplay {
+            font-size: 120px;
+        }
+        #secondsDisplay {
+            font-size: 60px;
+        }
+        .led-circle {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .led-dot {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 50%;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .led-dot.active {
+            background: red;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="led-circle" id="ledCircle"></div>
+        <div class="led-display">
+            <div id="timeDisplay">00:00</div>
+            <div id="secondsDisplay">00</div>
+        </div>
+    </div>
+
+    <script>
+        const createLedDots = () => {
+            const ledCircle = document.getElementById('ledCircle');
+            const radius = 240; // Rayon
+
+            [...Array(60)].forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('led-dot');
+                const angle = (i / 60) * 360;
+                dot.style.transform = `translate(${radius * Math.cos((angle - 90) * Math.PI / 180)}px, ${radius * Math.sin((angle - 90) * Math.PI / 180)}px)`;
+                ledCircle.appendChild(dot);
+            });
+        };
+
+        const updateClock = () => {
+            const now = new Date();
+            const [hours, minutes, seconds] = [
+                String(now.getHours()).padStart(2, '0'),
+                String(now.getMinutes()).padStart(2, '0'),
+                String(now.getSeconds()).padStart(2, '0')
+            ];
+            document.getElementById('timeDisplay').textContent = `${hours}:${minutes}`;
+            document.getElementById('secondsDisplay').textContent = seconds;
+
+            document.querySelectorAll('.led-dot').forEach((led, index) => {
+                led.classList.toggle('active', index <= now.getSeconds());
+            });
+        };
+
+        // Initialisation
+        createLedDots();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
